@@ -1,0 +1,24 @@
+{
+    "Grande Bianco Freddo": {
+        "Grandi elettrodomestici": []
+    },
+    "Grande Bianco non Freddo": {
+        "Grandi elettrodomestici": []
+    },
+    "TV Monitor a tubo catodico": [],
+    "Elettronica di consumo": {
+        "Apparecchiature informatiche e per telecomunicazioni": [],
+        "Apparecchiature di consumo e pannelli fotovoltaici": [],
+        "Apparecchiature di illuminazione": [],
+        "Utensili elettrici ed elettronici": [],
+        "Giocattoli e apparecchiature per il tempo libero e lo sport": [],
+        "Dispositivi medici": [],
+        "Strumenti di monitoraggio e di controllo": [],
+        "Piccoli elettrodomestici": [],
+        "Distributori automatici": []
+    },
+    "Sorgenti luminose a scarica": {
+        "Lampade fluorescenti": [],
+        "Sorgenti luminose compatte": []
+    }
+}
