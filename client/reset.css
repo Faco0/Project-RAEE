@@ -1,0 +1,66 @@
+:root {
+    --primary-button: #354f52;
+    --bg: #cad2c5;
+    --secondary-button: #84a98c;
+    --accent: #2f3e46;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.margins {
+    max-width: 1312px;
+    margin: 0 auto;
+}
+
+.subtitles {
+    font-size: 1.25rem;
+    margin-bottom: 56px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 0.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.btn a {
+    padding: 1rem 2.5rem;
+    display: block;
+    font-size: 1.15rem;
+    color: #fff
+}
+
+.btn-primary {
+    background-color: var(--primary-button);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-button);
+    margin-left: 1.5rem;
+}
+
+.p {
+    padding: 1rem;
+}

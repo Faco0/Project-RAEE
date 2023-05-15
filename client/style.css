@@ -1,0 +1,32 @@
+h1 {
+    font-size: 3.5rem;
+}
+
+.main {
+    background-color: var(--bg);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;   
+    padding: 1rem;
+}
+
+.left,.right {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.content {
+    height: 100vh;
+}
+
+.content-reverse {
+    height: 100vh;
+}
