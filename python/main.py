@@ -1,5 +1,6 @@
 # Progetto svolto da Facoetti, Brignoli e Panseri
 from data import ListaR, Lista10
+import json
 
 Elenco={
     "Grande Bianco Freddo": {"Grandi elettrodomestici": []},
@@ -21,6 +22,7 @@ Elenco={
         "Sorgenti luminose compatte": [],
     }
 }
+
 
 def menu():
     while True:
@@ -47,23 +49,55 @@ def aggiungi():
 
 def rimuovi():
     controllo = False
+    if Elenco=={"Grande Bianco Freddo": {"Grandi elettrodomestici": []},"Grande Bianco non Freddo": {"Grandi elettrodomestici": []},"TV Monitor a tubo catodico": [],"Elettronica di consumo": {"Apparecchiature informatiche e per telecomunicazioni": [],"Apparecchiature di consumo e pannelli fotovoltaici": [],"Apparecchiature di illuminazione": [],"Utensili elettrici ed elettronici": [],"Giocattoli e apparecchiature per il tempo libero e lo sport": [],"Dispositivi medici": [],"Strumenti di monitoraggio e di controllo": [],"Piccoli elettrodomestici": [],"Distributori automatici": []},"Sorgenti luminose a scarica": {"Lampade fluorescenti": [],"Sorgenti luminose compatte": [],}}:
+        print("\nELENCO VUOTO")
+        return controllo
     controllo = True
     return controllo
 
 def modifica():
     controllo = False
+    if Elenco=={"Grande Bianco Freddo": {"Grandi elettrodomestici": []},"Grande Bianco non Freddo": {"Grandi elettrodomestici": []},"TV Monitor a tubo catodico": [],"Elettronica di consumo": {"Apparecchiature informatiche e per telecomunicazioni": [],"Apparecchiature di consumo e pannelli fotovoltaici": [],"Apparecchiature di illuminazione": [],"Utensili elettrici ed elettronici": [],"Giocattoli e apparecchiature per il tempo libero e lo sport": [],"Dispositivi medici": [],"Strumenti di monitoraggio e di controllo": [],"Piccoli elettrodomestici": [],"Distributori automatici": []},"Sorgenti luminose a scarica": {"Lampade fluorescenti": [],"Sorgenti luminose compatte": [],}}:
+        print("\nELENCO VUOTO")
+        return controllo
     controllo = True
     return controllo
 
-def salvaDati(nomeFile):
+def salvaDati():
     controllo = False
-    controllo = True
-    return controllo
+    if Elenco=={"Grande Bianco Freddo": {"Grandi elettrodomestici": []},"Grande Bianco non Freddo": {"Grandi elettrodomestici": []},"TV Monitor a tubo catodico": [],"Elettronica di consumo": {"Apparecchiature informatiche e per telecomunicazioni": [],"Apparecchiature di consumo e pannelli fotovoltaici": [],"Apparecchiature di illuminazione": [],"Utensili elettrici ed elettronici": [],"Giocattoli e apparecchiature per il tempo libero e lo sport": [],"Dispositivi medici": [],"Strumenti di monitoraggio e di controllo": [],"Piccoli elettrodomestici": [],"Distributori automatici": []},"Sorgenti luminose a scarica": {"Lampade fluorescenti": [],"Sorgenti luminose compatte": [],}}:
+        while True:
+            try:
+                scelta=str(input("\nElenco vuoto, sei sicuro di voler sovrascrivere il file dati? (si/no) ")).lower()
+                match scelta:
+                    case "si":
+                        break
+                    case "no":
+                        return controllo
+                    case "_":
+                        print("\nScelta errata!")
+                        continue
+            except:
+                print("\nInput errato!")
+    try:
+        with open(".\python\elenco.json", 'w') as file:
+            json.dump(Elenco, file, indent=4)
+        controllo = True
+        return controllo
+    except:
+        print('\nErrore SalvaDati!')
 
-def caricaDati(nomeFile):
+def caricaDati():
     controllo = False
-    controllo = True
-    return controllo
+    try:
+        global Elenco
+        with open(".\python\elenco.json", 'r') as file:
+            Elenco=json.load(file)
+        controllo = True
+        return controllo
+    except:
+        print('\nErrore CaricaDati: File Archivio non esistente!')
+        return controllo
 
 def main():
     print("[INIZIO PROGRAMMA!]")
@@ -94,7 +128,7 @@ def main():
                     break
                 case 4:
                     print("\n[SALVA ELENCO]")
-                    controllo = salvaDati("elenco.json")
+                    controllo = salvaDati()
                     if controllo == False:
                         pass
                     else:
@@ -102,7 +136,7 @@ def main():
                     break
                 case 5:
                     print("\n[CARICA ELENCO]")
-                    controllo = caricaDati("elenco.json")
+                    controllo = caricaDati()
                     if controllo == False:
                         pass
                     else:
