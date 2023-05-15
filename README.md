@@ -32,7 +32,7 @@ I RAEE sono suddivisi secondo il Dlgs n.49/2014 in 10 categorie:
 
 10. Distributori automatici.
 
-##Raggruppamenti
+## Raggruppamenti
 
 La normativa individua 5 raggruppamenti di Raee in base alle tecnologie necessarie al loro corretto trattamento: R1 - Grande bianco freddo - grandi elettrodomestici per la refrigerazione: frigoriferi, congelatori, condizionatori
 
