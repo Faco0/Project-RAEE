@@ -44,6 +44,22 @@ def menu():
 
 def aggiungi():
     controllo = False
+    while True:
+        try:
+            print("\nRaggruppamenti disponibili:", ListaR)
+            rag=str(input("\nInserisci il raggruppamento dove inserirai il rifiuto: "))
+            if rag not in ListaR:
+                continue
+            break
+        except:
+            print("\nErrore!")
+    while True:
+        try:
+            #fare il controllo per la categoria (deve essere presente nel raggruppamento!!!)
+            break
+        except:
+            print("\nErrore!")
+            
     controllo = True
     return controllo
 
