@@ -31,3 +31,17 @@ I RAEE sono suddivisi secondo il Dlgs n.49/2014 in 10 categorie:
 9. Strumenti di monitoraggio e di controllo;
 
 10. Distributori automatici.
+
+##Raggruppamenti
+
+La normativa individua 5 raggruppamenti di Raee in base alle tecnologie necessarie al loro corretto trattamento: R1 - Grande bianco freddo - grandi elettrodomestici per la refrigerazione: frigoriferi, congelatori, condizionatori
+
+R2 - Grande bianco non freddo - grandi elettrodomestici come lavatrici, lavastoviglie.
+
+R3 - TV Monitor a tubo catodico
+
+R4 - Elettronica di consumo, Telecomunicazioni, Informatica, piccoli elettrodomestici, elettroutensili, giocattoli, apparecchi di illuminazione, dispositivi medici.
+
+R5 - Sorgenti luminose a scarica: lampade fluorescenti e sorgenti luminose compatte.
+
+Ogni tipologia di RAEE viene riciclato e smaltito secondo una specifica procedura.
