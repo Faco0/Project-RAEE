@@ -2,7 +2,7 @@ h1 {
     font-size: 3.5rem;
 }
 
-.main {
+main {
     background-color: var(--bg);
     width: 100%;
     min-height: 100vh;
@@ -29,4 +29,26 @@ h1 {
 
 .content-reverse {
     height: 100vh;
+}
+
+.outer-menu {
+    margin: 0;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    transition: .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.menu-open .outer-menu { background-color: var(--primary-button); }
+
+.menu {
+    display: flex;
+    justify-content: space-between;   
+}
+
+.menu li { display: inline-block; }
+.menu li a { 
+    display: block; 
+    padding: 16px 26px;
+    font-size: 1.1rem;
 }
