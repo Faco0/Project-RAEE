@@ -154,6 +154,15 @@ def caricaDati():
         print('\nErrore CaricaDati: File Archivio non esistente!')
         return controllo
 
+def stampa_dizionario(dizionario, livello):
+    spazi = "  " * livello
+    for chiave, valore in dizionario.items():
+        if isinstance(valore, dict):
+            print(f"{spazi}{chiave}:")
+            stampa_dizionario(valore, livello + 1)
+        else:
+            print(f"{spazi}{chiave}: {valore}")
+
 def main():
     print("[INIZIO PROGRAMMA!]")
     while True:
@@ -198,7 +207,7 @@ def main():
                         print("\n[ELENCO CARICATO CON SUCCESSO!]")
                     break
                 case 6:
-                    
+                    stampa_dizionario(Elenco, 0)
                     break
                 case 7:
                     print("\nElenco delle fonti:")
@@ -211,4 +220,6 @@ def main():
                     print('\nErrore Input: scelta non compresa tra 1 e 8!')
                     break
 
+with open(".\python\elenco.json", 'r') as file:
+    Elenco=json.load(file)
 main()
