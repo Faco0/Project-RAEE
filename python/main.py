@@ -3,23 +3,23 @@ from data import ListaR, Lista10
 import json
 
 Elenco={
-    "Grande Bianco Freddo": {"Grandi elettrodomestici": []},
-    "Grande Bianco non Freddo": {"Grandi elettrodomestici": []},
-    "TV Monitor a tubo catodico": [],
-    "Elettronica di consumo": {
-        "Apparecchiature informatiche e per telecomunicazioni": [],
-        "Apparecchiature di consumo e pannelli fotovoltaici": [],
-        "Apparecchiature di illuminazione": [],
-        "Utensili elettrici ed elettronici": [],
-        "Giocattoli e apparecchiature per il tempo libero e lo sport": [],
-        "Dispositivi medici": [],
-        "Strumenti di monitoraggio e di controllo": [],
-        "Piccoli elettrodomestici": [],
-        "Distributori automatici": []
+    "Grande Bianco Freddo": {"Grandi Elettrodomestici": []},
+    "Grande Bianco Non Freddo": {"Grandi Elettrodomestici": []},
+    "Tv Monitor A Tubo Catodico": [],
+    "Elettronica Di Consumo": {
+        "Apparecchiature Informatiche E Per Telecomunicazioni": [],
+        "Apparecchiature Di Consumo E Pannelli Fotovoltaici": [],
+        "Apparecchiature Di Illuminazione": [],
+        "Utensili Elettrici Ed Elettronici": [],
+        "Giocattoli E Apparecchiature Per Il Tempo Libero E Lo Sport": [],
+        "Dispositivi Medici": [],
+        "Strumenti Di Monitoraggio E Di Controllo": [],
+        "Piccoli Elettrodomestici": [],
+        "Distributori Automatici": []
     },
-    "Sorgenti luminose a scarica": {
-        "Lampade fluorescenti": [],
-        "Sorgenti luminose compatte": [],
+    "Sorgenti Luminose A Scarica": {
+        "Lampade Fluorescenti": [],
+        "Sorgenti Luminose Compatte": [],
     }
 }
 
@@ -47,19 +47,58 @@ def aggiungi():
     while True:
         try:
             print("\nRaggruppamenti disponibili:", ListaR)
-            rag=str(input("\nInserisci il raggruppamento dove inserirai il rifiuto: "))
+            rag=str(input("\nInserisci il raggruppamento dove inserirai il rifiuto: ")).title()
             if rag not in ListaR:
+                print("\nScelta errata!")
                 continue
             break
         except:
             print("\nErrore!")
     while True:
         try:
-            #fare il controllo per la categoria (deve essere presente nel raggruppamento!!!)
+            if Elenco[rag] == []:
+                break
+            print("\nCategorie presenti nel raggruppamento", rag + ":", list(Elenco[rag]))
+            cat=str(input("\nInserisci la categoria: ")).title()
+            if cat not in (Elenco[rag]):
+                print("\nScelta errata!")
+                continue
             break
         except:
             print("\nErrore!")
-            
+    while True:
+        try:
+            c = True
+            rif=str(input("\nInserisci il rifiuto: ")).title()
+            if Elenco[rag] == []:
+                if rif not in Elenco[rag]:
+                    pass
+                else:
+                    print("\nRifiuto già presente")
+                    continue
+            else:
+                if rif not in Elenco[rag][cat]:
+                    pass
+                else:
+                    print("\nRifiuto già presente")
+                    continue
+            for i in rif:
+                if i in "!|\[]{#@§+*'?^()/&%$}£":
+                    print("\nStringa non alfanumerica")
+                    c = False
+                if c == False:
+                    break
+            if c == False:
+                continue
+            else:
+                if Elenco[rag] == []:
+                    Elenco[rag].append(rif)
+                else:
+                    Elenco[rag][cat].append(rif)
+                break
+           
+        except:
+            print("\nErrore!")
     controllo = True
     return controllo
 
@@ -115,6 +154,15 @@ def caricaDati():
         print('\nErrore CaricaDati: File Archivio non esistente!')
         return controllo
 
+def stampa_dizionario(dizionario, livello):
+    spazi = "  " * livello
+    for chiave, valore in dizionario.items():
+        if isinstance(valore, dict):
+            print(f"{spazi}{chiave}:")
+            stampa_dizionario(valore, livello + 1)
+        else:
+            print(f"{spazi}{chiave}: {valore}")
+
 def main():
     print("[INIZIO PROGRAMMA!]")
     while True:
@@ -159,7 +207,7 @@ def main():
                         print("\n[ELENCO CARICATO CON SUCCESSO!]")
                     break
                 case 6:
-                    
+                    stampa_dizionario(Elenco, 0)
                     break
                 case 7:
                     print("\nElenco delle fonti:")
@@ -172,4 +220,6 @@ def main():
                     print('\nErrore Input: scelta non compresa tra 1 e 8!')
                     break
 
+with open(".\python\elenco.json", 'r') as file:
+    Elenco=json.load(file)
 main()
