@@ -9,7 +9,7 @@ main {
 }
 
 .hero {
-    height: 100vh;
+    height: 85vh;
     display: flex;   
     padding: 1rem;
 }
@@ -37,13 +37,14 @@ main {
     position: fixed;
     width: 100%;
     transition: .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    z-index: 20;
 }
 
-.menu-open .outer-menu { background-color: var(--primary-button); }
 
 .menu {
     display: flex;
     justify-content: space-between;   
+    padding: 0 2rem;
 }
 
 .menu li { display: inline-block; }
@@ -51,4 +52,44 @@ main {
     display: block; 
     padding: 16px 26px;
     font-size: 1.1rem;
+}
+
+.scrolled .outer-menu { background-color: var(--primary-button); }
+.scrolled .menu li a { color: white; }
+.scrolled .nav-cta { background-color: white; }
+.scrolled .nav-cta a { color: black !important }
+.scrolled #logo { fill: #fff; }
+
+#logo { transition: .3s cubic-bezier(0.215, 0.610, 0.355, 1); }
+
+
+.cards {
+    width: 100%;
+    height: 27.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    gap: 2rem;
+}
+
+.card {
+    border-radius: 10px;
+    flex: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    z-index: 10;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}   
+
+.content {
+    background-color: #588157;
 }

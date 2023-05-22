@@ -1,7 +1,7 @@
 document.addEventListener('scroll',()=>{
     if (window.scrollY > 100) {
-        document.body.classList.add('menu-open')
+        document.body.classList.add('scrolled')
     } else {
-        document.body.classList.remove('menu-open')
+        document.body.classList.remove('scrolled')
     }
 })

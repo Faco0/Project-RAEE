@@ -16,6 +16,8 @@ li {
 
 html {
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -47,6 +49,7 @@ body {
     border-radius: 0.25rem;
     margin: 0;
     padding: 0;
+    transition: .3s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .btn a {
