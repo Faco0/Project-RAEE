@@ -96,7 +96,6 @@ def aggiungi():
                 else:
                     Elenco[rag][cat].append(rif)
                 break
-           
         except:
             print("\nErrore!")
     controllo = True
@@ -104,23 +103,118 @@ def aggiungi():
 
 def rimuovi():
     controllo = False
-    if Elenco=={"Grande Bianco Freddo": {"Grandi elettrodomestici": []},"Grande Bianco non Freddo": {"Grandi elettrodomestici": []},"TV Monitor a tubo catodico": [],"Elettronica di consumo": {"Apparecchiature informatiche e per telecomunicazioni": [],"Apparecchiature di consumo e pannelli fotovoltaici": [],"Apparecchiature di illuminazione": [],"Utensili elettrici ed elettronici": [],"Giocattoli e apparecchiature per il tempo libero e lo sport": [],"Dispositivi medici": [],"Strumenti di monitoraggio e di controllo": [],"Piccoli elettrodomestici": [],"Distributori automatici": []},"Sorgenti luminose a scarica": {"Lampade fluorescenti": [],"Sorgenti luminose compatte": [],}}:
+    if Elenco=={"Grande Bianco Freddo": {"Grandi Elettrodomestici": []},"Grande Bianco Non Freddo": {"Grandi Elettrodomestici": []},"Tv Monitor A Tubo Catodico": [],"Elettronica Di Consumo": {"Apparecchiature Informatiche E Per Telecomunicazioni": [],"Apparecchiature Di Consumo E Pannelli Fotovoltaici": [],"Apparecchiature Di Illuminazione": [],"Utensili Elettrici Ed Elettronici": [],"Giocattoli E Apparecchiature Per Il Tempo Libero E Lo Sport": [],"Dispositivi Medici": [],"Strumenti Di Monitoraggio E Di Controllo": [],"Piccoli Elettrodomestici": [],"Distributori Automatici": []},"Sorgenti Luminose A Scarica": {"Lampade Fluorescenti": [],"Sorgenti Luminose Compatte": [],}}:
         print("\nELENCO VUOTO")
         return controllo
+    while True:
+        try:
+            print("\nRaggruppamenti disponibili:", ListaR)
+            rag=str(input("\nInserisci il raggruppamento dove rimuoverai il rifiuto: ")).title()
+            if rag not in ListaR:
+                print("\nScelta errata!")
+                continue
+            break
+        except:
+            print("\nErrore!")
+    while True:
+        try:
+            if Elenco[rag] == []:
+                break
+            print("\nCategorie presenti nel raggruppamento", rag + ":", list(Elenco[rag]))
+            cat=str(input("\nInserisci la categoria: ")).title()
+            if cat not in (Elenco[rag]):
+                print("\nScelta errata!")
+                continue
+            break
+        except:
+            print("\nErrore!")
+    while True:
+        try:
+            c = True
+            rif=str(input("\nInserisci il rifiuto che vuoi rimuovere: (0 se vuoi uscire)")).title()
+            if rif == "0":
+                break
+            else:
+                try:
+                    if Elenco[rag] == []:
+                        Elenco[rag].remove(rif)
+                    else:
+                        Elenco[rag][cat].remove(rif)
+                    break
+                except:
+                    print("\nRifiuto non presente!")
+                    continue
+        except:
+            print("\nErrore!")
     controllo = True
+    if rif == "0":
+        controllo = False
     return controllo
 
 def modifica():
     controllo = False
-    if Elenco=={"Grande Bianco Freddo": {"Grandi elettrodomestici": []},"Grande Bianco non Freddo": {"Grandi elettrodomestici": []},"TV Monitor a tubo catodico": [],"Elettronica di consumo": {"Apparecchiature informatiche e per telecomunicazioni": [],"Apparecchiature di consumo e pannelli fotovoltaici": [],"Apparecchiature di illuminazione": [],"Utensili elettrici ed elettronici": [],"Giocattoli e apparecchiature per il tempo libero e lo sport": [],"Dispositivi medici": [],"Strumenti di monitoraggio e di controllo": [],"Piccoli elettrodomestici": [],"Distributori automatici": []},"Sorgenti luminose a scarica": {"Lampade fluorescenti": [],"Sorgenti luminose compatte": [],}}:
+    if Elenco=={"Grande Bianco Freddo": {"Grandi Elettrodomestici": []},"Grande Bianco Non Freddo": {"Grandi Elettrodomestici": []},"Tv Monitor A Tubo Catodico": [],"Elettronica Di Consumo": {"Apparecchiature Informatiche E Per Telecomunicazioni": [],"Apparecchiature Di Consumo E Pannelli Fotovoltaici": [],"Apparecchiature Di Illuminazione": [],"Utensili Elettrici Ed Elettronici": [],"Giocattoli E Apparecchiature Per Il Tempo Libero E Lo Sport": [],"Dispositivi Medici": [],"Strumenti Di Monitoraggio E Di Controllo": [],"Piccoli Elettrodomestici": [],"Distributori Automatici": []},"Sorgenti Luminose A Scarica": {"Lampade Fluorescenti": [],"Sorgenti Luminose Compatte": [],}}:
         print("\nELENCO VUOTO")
         return controllo
+    while True:
+        try:
+            print("\nRaggruppamenti disponibili:", ListaR)
+            rag=str(input("\nInserisci il raggruppamento dove modificherai il rifiuto: ")).title()
+            if rag not in ListaR:
+                print("\nScelta errata!")
+                continue
+            break
+        except:
+            print("\nErrore!")
+    while True:
+        try:
+            if Elenco[rag] == []:
+                break
+            print("\nCategorie presenti nel raggruppamento", rag + ":", list(Elenco[rag]))
+            cat=str(input("\nInserisci la categoria: ")).title()
+            if cat not in (Elenco[rag]):
+                print("\nScelta errata!")
+                continue
+            break
+        except:
+            print("\nErrore!")
+    while True:
+        try:
+            c = True
+            rif=str(input("\nInserisci il rifiuto che vuoi modificare: (0 se vuoi uscire)")).title()
+            if rif == "0":
+                break
+            rif2=str(input("\nInserisci il nuovo nome del rifiuto: ")).title()
+            for i in rif2:
+                if i in "!|\[]{#@§+*'?^()/&%$}£":
+                    print("\nStringa non alfanumerica")
+                    c = False
+                if c == False:
+                    break
+            if c == False:
+                continue
+            else:
+                try:
+                    if Elenco[rag] == []:
+                        pos=Elenco[rag].index(rif)
+                        Elenco[rag][pos] = rif2
+                    else:
+                        pos=Elenco[rag][cat].index(rif)
+                        Elenco[rag][cat][pos] = rif2
+                    break
+                except:
+                    print("\nRifiuto non presente!")
+                    continue
+        except:
+            print("\nErrore!")
     controllo = True
+    if rif == "0":
+        controllo = False
     return controllo
 
 def salvaDati():
     controllo = False
-    if Elenco=={"Grande Bianco Freddo": {"Grandi elettrodomestici": []},"Grande Bianco non Freddo": {"Grandi elettrodomestici": []},"TV Monitor a tubo catodico": [],"Elettronica di consumo": {"Apparecchiature informatiche e per telecomunicazioni": [],"Apparecchiature di consumo e pannelli fotovoltaici": [],"Apparecchiature di illuminazione": [],"Utensili elettrici ed elettronici": [],"Giocattoli e apparecchiature per il tempo libero e lo sport": [],"Dispositivi medici": [],"Strumenti di monitoraggio e di controllo": [],"Piccoli elettrodomestici": [],"Distributori automatici": []},"Sorgenti luminose a scarica": {"Lampade fluorescenti": [],"Sorgenti luminose compatte": [],}}:
+    if Elenco=={"Grande Bianco Freddo": {"Grandi Elettrodomestici": []},"Grande Bianco Non Freddo": {"Grandi Elettrodomestici": []},"Tv Monitor A Tubo Catodico": [],"Elettronica Di Consumo": {"Apparecchiature Informatiche E Per Telecomunicazioni": [],"Apparecchiature Di Consumo E Pannelli Fotovoltaici": [],"Apparecchiature Di Illuminazione": [],"Utensili Elettrici Ed Elettronici": [],"Giocattoli E Apparecchiature Per Il Tempo Libero E Lo Sport": [],"Dispositivi Medici": [],"Strumenti Di Monitoraggio E Di Controllo": [],"Piccoli Elettrodomestici": [],"Distributori Automatici": []},"Sorgenti Luminose A Scarica": {"Lampade Fluorescenti": [],"Sorgenti Luminose Compatte": [],}}:
         while True:
             try:
                 scelta=str(input("\nElenco vuoto, sei sicuro di voler sovrascrivere il file dati? (si/no) ")).lower()
