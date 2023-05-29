@@ -1,0 +1,15 @@
+body {
+    background-color: #cad2c5;
+}
+
+a {
+    display: flex;
+    align-items: center;
+}
+
+h1, h2 {
+    background-color: #84a98c;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
